@@ -1,4 +1,4 @@
-import { ModuleDeclaration } from '@swc/core'
+import { ModuleDeclaration, TsType } from '@swc/core'
 import Visitor from '@swc/core/Visitor'
 
 function isComponentLikeName(name: string): boolean {
@@ -23,6 +23,10 @@ export default class ReactRefreshBoundaryCollector extends Visitor {
 
   get isReactRefreshBoundary() {
     return this.hasExports && this.areAllExportsComponents
+  }
+
+  visitTsType(n: TsType): TsType {
+    return n
   }
 
   // patched from https://github.com/facebook/react/blob/a817840ea7d3818c0590cccb9159b13220f4fdb4/packages/react-refresh/src/ReactFreshBabelPlugin.js#L437-L438
@@ -87,10 +91,7 @@ export default class ReactRefreshBoundaryCollector extends Visitor {
       const { type } = decl
       if (type === 'TsInterfaceDeclaration') {
         // noop
-      } else if (
-        type === 'FunctionExpression' ||
-        type === 'ClassExpression'
-      ) {
+      } else if (type === 'FunctionExpression' || type === 'ClassExpression') {
         this.areAllExportsComponents = isComponentLikeName(
           decl.identifier.value,
         )

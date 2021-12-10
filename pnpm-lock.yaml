@@ -17,14 +17,12 @@ importers:
       '@swc/core': ^1.2.98
       '@types/lodash.merge': ^4.6.6
       '@types/node': ^16.11.0
-      core-js: ^3.18.3
       lodash.merge: ^4.6.2
       react-refresh: ^0.10.0
       typescript: ^4.4.4
       vite: ^2.6.7
     dependencies:
       '@swc/core': 1.2.98
-      core-js: 3.18.3
       lodash.merge: 4.6.2
       react-refresh: 0.10.0
     devDependencies:
@@ -1138,11 +1136,6 @@ packages:
     dependencies:
       safe-buffer: 5.1.2
     dev: true
-
-  /core-js/3.18.3:
-    resolution: {integrity: sha512-tReEhtMReZaPFVw7dajMx0vlsz3oOb8ajgPoHVYGxr8ErnZ6PcYEvvmjGmXlfpnxpkYSdOQttjB+MvVbCGfvLw==}
-    requiresBuild: true
-    dev: false
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
